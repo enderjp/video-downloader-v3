@@ -110,7 +110,10 @@ class FacebookSeleniumScraper:
             logger.info("✅ Driver de Chrome configurado correctamente")
             
         except Exception as e:
-            logger.error(f"❌ Error configurando driver: {e}")
+            msg = str(e)
+            logger.error(f"❌ Error configurando driver: {msg}")
+            if 'cannot find Chrome binary' in msg or 'Could not find Chrome' in msg or 'chrome not reachable' in msg.lower():
+                logger.error("Sugerencias: asegurarse de que Chromium/Chrome esté instalado en el sistema, o establecer la variable de entorno CHROME_BIN con la ruta al binario.\n- En Render sin Docker, considera usar Playwright (que descarga navegadores) o desplegar con Docker que incluya Chromium.\n- Localmente instala chromium/chrome y asegúrate de que el binario sea accesible para el servicio.")
             raise
 
     # --- el resto de métodos (igual que en v2) ---
