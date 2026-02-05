@@ -1,0 +1,8 @@
+fastapi==0.100.0
+uvicorn[standard]==0.23.0
+requests==2.31.0
+python-dotenv==1.0.0
+pydantic==1.10.18
+selenium==4.40.0
+webdriver-manager>=4.0.2
+beautifulsoup4==4.12.2
