@@ -285,7 +285,7 @@ class FacebookSeleniumScraper:
                         return 'https://m.facebook.com' + href
                     return href
 
-            m_fbcdn = re.search(r'(https://[a-z0-9.\-]*fbcdn\.net[^"'>\s]+)', page_source or '')
+            m_fbcdn = re.search(r'(https://[a-z0-9.\-]*fbcdn\.net[^"\'\>\s]+)', page_source or '')
             if m_fbcdn:
                 return m_fbcdn.group(1)
 
